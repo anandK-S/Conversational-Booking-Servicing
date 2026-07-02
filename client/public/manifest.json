@@ -1,0 +1,12 @@
+{
+  "name": "BlueWings Assistant",
+  "short_name": "BlueWings",
+  "description": "Book, check in, and manage your BlueWings flights via chat.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1E3D",
+  "theme_color": "#0B1E3D",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

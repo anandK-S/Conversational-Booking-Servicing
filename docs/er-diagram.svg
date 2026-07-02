@@ -1,0 +1,110 @@
+<svg width="1000" height="600" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Arial, sans-serif">
+  <defs>
+    <marker id="crow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#5C6B7A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="600" fill="#FAFBFC"/>
+  <text x="30" y="34" font-size="19" font-weight="700" fill="#0B1E3D">BlueWings — Data Model (Entity-Relationship)</text>
+
+  <!-- FLIGHT -->
+  <g>
+    <rect x="40" y="70" width="230" height="176" rx="10" fill="#FFFFFF" stroke="#378ADD" stroke-width="1.5"/>
+    <rect x="40" y="70" width="230" height="30" rx="10" fill="#378ADD"/>
+    <rect x="40" y="90" width="230" height="10" fill="#378ADD"/>
+    <text x="155" y="90" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">FLIGHT</text>
+    <text x="54" y="118" font-size="11" fill="#0B1E3D">flightNumber (PK)</text>
+    <text x="54" y="136" font-size="11" fill="#5C6B7A">origin, destination</text>
+    <text x="54" y="154" font-size="11" fill="#5C6B7A">departure, arrival</text>
+    <text x="54" y="172" font-size="11" fill="#5C6B7A">aircraft, gate, terminal</text>
+    <text x="54" y="190" font-size="11" fill="#5C6B7A">status, delayMinutes</text>
+    <text x="54" y="208" font-size="11" fill="#5C6B7A">— 1:N to Booking —</text>
+  </g>
+
+  <!-- BOOKING -->
+  <g>
+    <rect x="380" y="70" width="240" height="230" rx="10" fill="#FFFFFF" stroke="#E5573F" stroke-width="1.5"/>
+    <rect x="380" y="70" width="240" height="30" rx="10" fill="#E5573F"/>
+    <rect x="380" y="90" width="240" height="10" fill="#E5573F"/>
+    <text x="500" y="90" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">BOOKING</text>
+    <text x="394" y="118" font-size="11" fill="#0B1E3D">pnr (PK)</text>
+    <text x="394" y="136" font-size="11" fill="#5C6B7A">lastName</text>
+    <text x="394" y="154" font-size="11" fill="#5C6B7A">contact.email, contact.phone</text>
+    <text x="394" y="172" font-size="11" fill="#0B1E3D">flightNumber (FK &#8594; Flight)</text>
+    <text x="394" y="190" font-size="11" fill="#5C6B7A">status (CONFIRMED/CANCELLED)</text>
+    <text x="394" y="208" font-size="11" fill="#5C6B7A">fareClass, fareAmount, currency</text>
+    <text x="394" y="226" font-size="11" fill="#5C6B7A">createdAt</text>
+    <text x="394" y="248" font-size="11" fill="#5C6B7A">— 1:N to Passenger —</text>
+    <text x="394" y="266" font-size="11" fill="#5C6B7A">— 1:N to Seat —</text>
+    <text x="394" y="284" font-size="11" fill="#5C6B7A">— 1:1 to OtpCode (transient) —</text>
+  </g>
+
+  <!-- PASSENGER -->
+  <g>
+    <rect x="720" y="70" width="240" height="160" rx="10" fill="#FFFFFF" stroke="#1FA97F" stroke-width="1.5"/>
+    <rect x="720" y="70" width="240" height="30" rx="10" fill="#1FA97F"/>
+    <rect x="720" y="90" width="240" height="10" fill="#1FA97F"/>
+    <text x="840" y="90" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">PASSENGER</text>
+    <text x="734" y="118" font-size="11" fill="#0B1E3D">id (PK)</text>
+    <text x="734" y="136" font-size="11" fill="#0B1E3D">bookingPnr (FK &#8594; Booking)</text>
+    <text x="734" y="154" font-size="11" fill="#5C6B7A">name, type (ADULT/CHILD)</text>
+    <text x="734" y="172" font-size="11" fill="#5C6B7A">seat (FK &#8594; Seat.id, nullable)</text>
+    <text x="734" y="190" font-size="11" fill="#5C6B7A">checkedIn (bool)</text>
+    <text x="734" y="208" font-size="11" fill="#5C6B7A">baggage (extra kg)</text>
+  </g>
+
+  <!-- SEAT -->
+  <g>
+    <rect x="380" y="350" width="240" height="150" rx="10" fill="#FFFFFF" stroke="#F2A93B" stroke-width="1.5"/>
+    <rect x="380" y="350" width="240" height="30" rx="10" fill="#F2A93B"/>
+    <rect x="380" y="370" width="240" height="10" fill="#F2A93B"/>
+    <text x="500" y="370" font-size="13" font-weight="700" text-anchor="middle" fill="#0B1E3D">SEAT (per booking)</text>
+    <text x="394" y="398" font-size="11" fill="#0B1E3D">id (PK, e.g. "14C")</text>
+    <text x="394" y="416" font-size="11" fill="#0B1E3D">bookingPnr (FK &#8594; Booking)</text>
+    <text x="394" y="434" font-size="11" fill="#5C6B7A">row, col, type, price</text>
+    <text x="394" y="452" font-size="11" fill="#5C6B7A">occupied (bool)</text>
+    <text x="394" y="470" font-size="11" fill="#5C6B7A">window, aisle (bool)</text>
+  </g>
+
+  <!-- OTP -->
+  <g>
+    <rect x="40" y="350" width="230" height="110" rx="10" fill="#FFFFFF" stroke="#B4B2A9" stroke-width="1.5"/>
+    <rect x="40" y="350" width="230" height="30" rx="10" fill="#8A8880"/>
+    <rect x="40" y="370" width="230" height="10" fill="#8A8880"/>
+    <text x="155" y="370" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">OTP_CODE (transient)</text>
+    <text x="54" y="398" font-size="11" fill="#0B1E3D">pnr (PK, FK &#8594; Booking)</text>
+    <text x="54" y="416" font-size="11" fill="#5C6B7A">code (6-digit)</text>
+    <text x="54" y="434" font-size="11" fill="#5C6B7A">expiresAt (TTL, 5 min)</text>
+  </g>
+
+  <!-- SESSION -->
+  <g>
+    <rect x="720" y="350" width="240" height="150" rx="10" fill="#FFFFFF" stroke="#0B1E3D" stroke-width="1.5"/>
+    <rect x="720" y="350" width="240" height="30" rx="10" fill="#0B1E3D"/>
+    <rect x="720" y="370" width="240" height="10" fill="#0B1E3D"/>
+    <text x="840" y="370" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">SESSION (conversation)</text>
+    <text x="734" y="398" font-size="11" fill="#0B1E3D">id (PK, UUID)</text>
+    <text x="734" y="416" font-size="11" fill="#0B1E3D">pnr (FK &#8594; Booking, nullable)</text>
+    <text x="734" y="434" font-size="11" fill="#5C6B7A">authenticated (bool), context (JSON)</text>
+    <text x="734" y="452" font-size="11" fill="#5C6B7A">failedIntentCount, agentHandoff</text>
+    <text x="734" y="470" font-size="11" fill="#5C6B7A">createdAt</text>
+  </g>
+
+  <!-- relationships -->
+  <line x1="270" y1="150" x2="378" y2="150" stroke="#5C6B7A" stroke-width="1.4" marker-end="url(#crow)"/>
+  <text x="300" y="142" font-size="10" fill="#5C6B7A">1:N</text>
+
+  <line x1="620" y1="150" x2="718" y2="150" stroke="#5C6B7A" stroke-width="1.4" marker-end="url(#crow)"/>
+  <text x="650" y="142" font-size="10" fill="#5C6B7A">1:N</text>
+
+  <line x1="500" y1="300" x2="500" y2="348" stroke="#5C6B7A" stroke-width="1.4" marker-end="url(#crow)"/>
+  <text x="510" y="325" font-size="10" fill="#5C6B7A">1:N</text>
+
+  <line x1="380" y1="405" x2="272" y2="405" stroke="#5C6B7A" stroke-width="1.4" marker-end="url(#crow)"/>
+  <text x="295" y="397" font-size="10" fill="#5C6B7A">1:1</text>
+
+  <line x1="620" y1="425" x2="718" y2="425" stroke="#5C6B7A" stroke-width="1.4" marker-end="url(#crow)"/>
+  <text x="650" y="417" font-size="10" fill="#5C6B7A">N:1</text>
+
+  <text x="30" y="560" font-size="11" fill="#5C6B7A">MVP storage: all entities held in-memory (JS objects) inside the Node process — see Database Design doc §2 for the production schema mapping.</text>
+</svg>

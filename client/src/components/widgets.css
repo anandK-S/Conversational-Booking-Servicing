@@ -1,0 +1,187 @@
+.ticket {
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 16px 18px;
+  max-width: 320px;
+  margin-top: 6px;
+  position: relative;
+  border: 1px solid var(--border);
+  font-family: var(--font-body);
+}
+
+.ticket__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.badge {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}
+.badge--green { background: var(--green-bg); color: var(--green); }
+.badge--coral { background: var(--coral-bg); color: var(--coral); }
+
+.ticket__route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ticket__place { text-align: left; }
+.ticket__place--right { text-align: right; }
+.ticket__code {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+.ticket__city {
+  font-size: 11px;
+  color: var(--slate);
+  margin-top: 3px;
+}
+.ticket__routeline {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--slate-light) 0 4px, transparent 4px 8px);
+  margin: 0 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ticket__planeicon {
+  color: var(--amber-dark);
+  background: var(--paper);
+  padding: 2px;
+}
+
+.ticket__perf {
+  height: 0;
+  border-top: 1.5px dashed var(--border);
+  margin: 14px -18px;
+  position: relative;
+}
+.ticket__perf::before, .ticket__perf::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--cloud);
+  border-radius: 50%;
+  top: -7px;
+}
+.ticket__perf::before { left: -7px; }
+.ticket__perf::after { right: -7px; }
+
+.ticket__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.ticket__meta--wide { grid-template-columns: 1fr; }
+.ticket__label {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.ticket__passname {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+
+.ticket__barcode {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  background: var(--cloud);
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.ticket--cancel { border-color: var(--coral-bg); }
+
+/* Seat map */
+.seatmap {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  max-width: 300px;
+  margin-top: 6px;
+  box-shadow: var(--shadow-sm);
+}
+.seatmap__legend {
+  display: flex;
+  gap: 14px;
+  font-size: 11px;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+.dot--free { background: var(--green); }
+.dot--taken { background: var(--slate-light); }
+.seatmap__row { display: flex; align-items: center; gap: 5px; margin-bottom: 5px; }
+.seatmap__rownum { font-family: var(--font-mono); font-size: 10px; color: var(--slate-light); width: 14px; }
+.seatmap__seat {
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  border: 1px solid var(--green);
+  background: var(--green-bg);
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+}
+.seatmap__seat.is-taken {
+  border-color: var(--border);
+  background: var(--cloud);
+  color: var(--slate-light);
+  cursor: not-allowed;
+}
+.seatmap__seat.is-premium {
+  border-color: var(--amber);
+  background: #FEF6E7;
+  color: var(--amber-dark);
+}
+.seatmap__gap { width: 26px; }
+
+.handoff-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 20px;
+  margin: 8px auto;
+  width: fit-content;
+}

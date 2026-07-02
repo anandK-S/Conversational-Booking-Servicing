@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  --navy: #0B1E3D;
+  --navy-light: #142B52;
+  --amber: #F2A93B;
+  --amber-dark: #D6902A;
+  --cloud: #FAFBFC;
+  --paper: #FFFFFF;
+  --slate: #5C6B7A;
+  --slate-light: #9AA6B2;
+  --green: #1FA97F;
+  --green-bg: #E5F6F0;
+  --coral: #E5573F;
+  --coral-bg: #FDECE9;
+  --border: #E4E8EC;
+  --shadow-sm: 0 1px 3px rgba(11, 30, 61, 0.08);
+  --shadow-md: 0 4px 16px rgba(11, 30, 61, 0.12);
+  --radius: 14px;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cloud);
+  color: var(--navy);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--slate-light); border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
